@@ -2,7 +2,7 @@
 
 ⚠️ Not officially production ready until documentation updated to indicate otherwise. Use at your own risk.
 
-The Zorkin SDK is a frontend client for interfacing with Zorkin. It supports authorizing new sessions, and once authorized, allows transactions to be signed with the session key. Session authorization involves generating proof to demonstrate possession of a valid JWT for the contract account, uniquely derived from the JWT based on the subject, issuer, and client fields. A detailed description of how Zorkin works will be provided upon release.
+Zorkin SDK is a frontend client for interfacing with Zorkin. It supports authorizing new sessions, and once authorized, allows transactions to be signed with the session key. Session authorization involves generating proof to demonstrate possession of a valid JWT for the contract account, uniquely derived from the JWT based on the subject, issuer, and client fields. A detailed description of how Zorkin works will be provided upon release.
 
 This is a beta-v1 release, so you can expect limited documentation and code that may not be of production quality. However, the SDK is mostly finalized. It is designed as a Vite component library, offering the option to add pre-made sign-in frontend components for added convenience in the future.
 
