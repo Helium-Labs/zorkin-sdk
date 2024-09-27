@@ -4,6 +4,11 @@
   "main": "./dist/zorkin-sdk.cjs",
   "module": "./dist/zorkin-sdk.mjs",
   "types": "./types/index.d.ts",
+  "author": "Winton Nathan-Roberts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Helium-Labs/zorkin-sdk"
+  },
   "scripts": {
     "dev": "vite --port 7123",
     "build": "tsc && vite build && yarn build-tailwind",
