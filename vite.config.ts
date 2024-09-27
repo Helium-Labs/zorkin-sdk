@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import react from '@vitejs/plugin-react' // Updated plugin for React
+import dts from "vite-plugin-dts";
 // import css
 import 'tailwindcss'
 import 'tailwindcss/defaultTheme'
@@ -19,6 +20,10 @@ export default defineConfig({
         process: false,
         Buffer: false
       },
+    }),
+    dts({
+      insertTypesEntry: true,
+      outDir: './dist/types'
     }),
     react()
   ],

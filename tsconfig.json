@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "outDir": "./types", // Specify your desired output directory for types
+      "outDir": "./dist/types", // Specify your desired output directory for types
       "target": "ESNext",
       "lib": ["DOM", "DOM.Iterable", "ESNext"],
       "types": ["node", "vite/client"],
