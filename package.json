@@ -1,6 +1,6 @@
 {
   "name": "zorkin-sdk",
-  "version": "1.0.2-beta.1",
+  "version": "1.0.3-beta.1",
   "main": "./dist/zorkin-sdk.cjs",
   "module": "./dist/zorkin-sdk.mjs",
   "types": "./dist/types/index.d.ts",
