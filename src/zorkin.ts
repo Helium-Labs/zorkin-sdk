@@ -93,7 +93,7 @@ export default class ZorkinSDK {
     const txId = txIds.pop()
     AssertDefined(txId, "TxID must be defined")
     try {
-      await waitForConfirmation(algod, txId, 2)
+      await waitForConfirmation(algod, txId, 5)
     } catch (e) {
       return txId
     }
