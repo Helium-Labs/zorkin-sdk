@@ -101,13 +101,13 @@ export default class ZorkinSDK {
   }
 
   private async getAuthorizingAccountLSIG(args?: Uint8Array[]): Promise<algosdk.LogicSigAccount> {
-    const baseSessionPK = await this.sessionManager.getPublicKey()
-    AssertDefined(baseSessionPK, "Must have generated session key")
-    return await this.getContractAccountLSIG(baseSessionPK, args)
+    const authorizingSessionPK = await this.sessionManager.getPublicKey()
+    AssertDefined(authorizingSessionPK, "Must have generated session key")
+    return await this.getContractAccountLSIG(authorizingSessionPK, args)
   }
 
   private async getContractAccountLSIG(sessionPK: Uint8Array, args?: Uint8Array[]): Promise<algosdk.LogicSigAccount> {
-    const jwt = await this.oidcClient.getCachedJWT()
+    const jwt = this.oidcClient.getCachedJWT()
     AssertDefined(jwt, "JWT must be defined. User must login.")
     const res = await this.api().getContractAccount({
       clientID: this.clientID,
@@ -175,7 +175,7 @@ export default class ZorkinSDK {
   }
 
   public async fundAccountForDemo() {
-    const jwt = await this.oidcClient.getCachedJWT()
+    const jwt = this.oidcClient.getCachedJWT()
     AssertDefined(jwt, "JWT is expired or missing. User must login.")
     await this.api().demoFundContractAccount({ clientID: this.clientID, clientJWT: jwt })
   }
@@ -198,6 +198,7 @@ export default class ZorkinSDK {
       return false
     }
   }
+
   // get the address of the zorkin
   public async getAddress(): Promise<string> {
     const lsig = await this.getBaseAccountLSIG()
