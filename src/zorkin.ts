@@ -3,7 +3,7 @@ import { AssertDefined, base64urlToBuffer, bufferToBase64url, getNonce, getTealI
 import OIDCClient from './jwt'
 import { OAuthClientConfig, OAuthProvider } from './types'
 import { SessionManager } from './crypto'
-import algosdk from 'algosdk'
+import algosdk, { waitForConfirmation } from 'algosdk'
 import { compileTeal } from '@algorandfoundation/algokit-utils'
 import { CompiledTeal } from '@algorandfoundation/algokit-utils/types/app'
 import { algod } from './algod'
@@ -92,6 +92,11 @@ export default class ZorkinSDK {
     const txIds = await atc.submit(algod)
     const txId = txIds.pop()
     AssertDefined(txId, "TxID must be defined")
+    try {
+      await waitForConfirmation(algod, txId, 2)
+    } catch (e) {
+      return txId
+    }
     return txId
   }
 
