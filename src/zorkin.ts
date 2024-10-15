@@ -226,7 +226,6 @@ export default class ZorkinSDK {
         apiKey: MOONPAY_CLIENT_API_KEY,
         theme: 'dark',
         baseCurrencyCode: 'usd',
-        baseCurrencyAmount: '50',
         defaultCurrencyCode: 'ALGO',
         walletAddress: address
       }
