@@ -21,14 +21,12 @@ export function base64urlToBuffer(base64url: string): Uint8Array {
   return Uint8Array.from(buf)
 }
 
-
 export async function getNonce(sessionPK: Uint8Array, expValidity: number): Promise<string> {
   const structABICodec: algosdk.ABIType = algosdk.ABIType.from('(byte[32],uint64)')
   const unhashedNonce: Uint8Array = structABICodec.encode([sessionPK, expValidity])
   const nonce = sha256(unhashedNonce)
   const nonceAsBase64Url = bufferToBase64url(nonce)
   return nonceAsBase64Url
-
 }
 
 export function Assert(value: boolean, message: string): asserts value is true {

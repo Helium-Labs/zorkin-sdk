@@ -395,6 +395,11 @@
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz#f29a55df17cb6e87cfbabce33ff6a14a9f85076d"
   integrity sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==
 
+"@moonpay/moonpay-js@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@moonpay/moonpay-js/-/moonpay-js-0.6.2.tgz#1f5803926912aa0cb97f46561c6b53c19b435805"
+  integrity sha512-TRSy5vae121smUbe2W340jbTldbsXktLIx3fZjiriTPSm2JvEw5sKgOpJ7PiUYVzS0nrNXXNFkY2M2xPgatx0g==
+
 "@noble/ed25519@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@noble/ed25519/-/ed25519-2.1.0.tgz#4bf661de9ee0ad775d41fcacbfc9aeec491f459c"

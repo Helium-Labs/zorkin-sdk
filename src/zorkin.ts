@@ -8,7 +8,8 @@ import { compileTeal } from '@algorandfoundation/algokit-utils'
 import { CompiledTeal } from '@algorandfoundation/algokit-utils/types/app'
 import { algod } from './algod'
 import { AuthorizeSessionRequest, GetAuthorizeSessionGroupHashRequest, GetContractAccountRequest } from './zorkin-client/zorkin-server-oapi-client'
-import { EXP_VALID_CONSTANT } from './constants'
+import { EXP_VALID_CONSTANT, MOONPAY_CLIENT_API_KEY } from './constants'
+import { loadMoonPay } from '@moonpay/moonpay-js';
 
 const asBase64Bytes = (str: string): string => `base64(${str})`
 
@@ -213,4 +214,24 @@ export default class ZorkinSDK {
   public disconnect(): void {
   }
 
+  public async onramp(): Promise<void> {
+    const moonPay = await loadMoonPay();
+    AssertDefined(moonPay, "moonPay must be defined")
+    const address: string = await this.getAddress()
+    const moonPaySdk = moonPay({
+      flow: 'buy',
+      environment: 'sandbox',
+      variant: 'overlay',
+      params: {
+        apiKey: MOONPAY_CLIENT_API_KEY,
+        theme: 'dark',
+        baseCurrencyCode: 'usd',
+        baseCurrencyAmount: '50',
+        defaultCurrencyCode: 'ALGO',
+        walletAddress: address
+      }
+    });
+    AssertDefined(moonPaySdk, "moonPay must be defined")
+    moonPaySdk.show();
+  }
 }

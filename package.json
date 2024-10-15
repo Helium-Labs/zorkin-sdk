@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "@algorandfoundation/algokit-utils": "^6.2.1",
+    "@moonpay/moonpay-js": "^0.6.2",
     "@noble/ed25519": "^2.0.0",
     "@noble/hashes": "^1.5.0",
     "algosdk": "^2.7.0",
